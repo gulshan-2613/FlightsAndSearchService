@@ -1,13 +1,17 @@
 const express = require("express");
+const bodyParser = require("body-parser");
 
 const { PORT } = require('./config/serverConfig');
 
 const setupAndStartServer = async () => {
       
-    const app = express();
+    const app = express(); 
+
+    app.use(bodyParser.json());
+    app.use(bodyParser.urlencoded({exended: true}));
+
     app.listen(PORT, () => {
-        console.log(`Server started at ${PORT}`);
-        console.log(process.env); 
+        console.log(`Server started at ${PORT}`);  
     }); 
 }
 
