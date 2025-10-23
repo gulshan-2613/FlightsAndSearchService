@@ -63,7 +63,7 @@ class CityRepository {
     async getAllCities(filter) { 
         try {
             if(filter.name) {
-                const cities = await City.find({
+                const cities = await City.findAll({
                     where: {
                         name: {
                             [Op.startsWith]: filter.name
@@ -82,4 +82,4 @@ class CityRepository {
 
 }
 
-module.exports = CityRepository;
+module.exports = CityRepository; 
